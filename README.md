@@ -1,6 +1,6 @@
-# XPENG G9L Ghana
+# XPENG Ghana
 
-Premium Next.js marketing site for the authorized XPENG distributor in Ghana, focused on the XPENG G9L.
+Premium Next.js marketing site for the authorized XPENG distributor in Ghana.
 
 ## Stack
 
