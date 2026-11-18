@@ -200,35 +200,12 @@ export function usePrefersReducedMotion(): boolean {
   return reduced;
 }
 
-/** Rough mobile / constrained connection check for video autoplay policy */
+/**
+ * Muted inline video may autoplay on every screen size.
+ * Reduced motion is the only block — phones and production builds included.
+ */
 export function useShouldAutoplayVideo(): boolean {
-  const [allow, setAllow] = useState(false);
-  const reduced = usePrefersReducedMotion();
-
-  useEffect(() => {
-    if (reduced) {
-      setAllow(false);
-      return;
-    }
-
-    const isCoarse = window.matchMedia("(pointer: coarse)").matches;
-    const narrow = window.matchMedia("(max-width: 768px)").matches;
-    const connection = (
-      navigator as Navigator & {
-        connection?: { saveData?: boolean; effectiveType?: string };
-      }
-    ).connection;
-
-    const slow =
-      connection?.saveData === true ||
-      connection?.effectiveType === "slow-2g" ||
-      connection?.effectiveType === "2g" ||
-      connection?.effectiveType === "3g";
-
-    setAllow(!(isCoarse || narrow || slow));
-  }, [reduced]);
-
-  return allow;
+  return !usePrefersReducedMotion();
 }
 
 /** True below md — used to skip parallax on small screens */

@@ -6,6 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/motion";
 import { getFeaturedModel } from "@/lib/data";
+import { playMuted } from "@/lib/autoplay";
 import { durations, easeOut } from "@/lib/motion";
 
 const TECH_VIDEOS = [
@@ -48,16 +49,7 @@ export function AssemblyStory() {
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
-    video.load();
-    const play = async () => {
-      try {
-        video.muted = true;
-        await video.play();
-      } catch {
-        /* autoplay may be blocked — poster/first frame still shows */
-      }
-    };
-    void play();
+    return playMuted(video);
   }, [active]);
 
   if (steps.length === 0) return null;
@@ -95,7 +87,7 @@ export function AssemblyStory() {
                 playsInline
                 loop
                 autoPlay
-                preload="metadata"
+                preload="auto"
                 className="absolute inset-0 h-full w-full object-cover"
                 aria-label={steps[active]?.title ?? "Technology story"}
               />

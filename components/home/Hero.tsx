@@ -35,8 +35,7 @@ export function Hero() {
     <section ref={sectionRef} className="relative flex min-h-[100svh] items-end">
       <div className="absolute inset-0">
         <CinematicVideo
-          src="/videos/hero%20page.mp4"
-          poster="/videos/hero-poster.jpg"
+          src="/videos/hero-page.mp4"
           alt="XPENG driving in Ghana"
           className="h-full w-full"
           autoPlayWhenAllowed

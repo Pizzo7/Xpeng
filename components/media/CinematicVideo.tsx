@@ -2,11 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { playMuted } from "@/lib/autoplay";
 import { usePrefersReducedMotion, useShouldAutoplayVideo } from "@/lib/motion";
 
 interface CinematicVideoProps {
   src: string;
-  poster: string;
+  poster?: string;
   alt: string;
   className?: string;
   /** Autoplay only when policy allows (desktop + good connection) */
@@ -33,31 +34,18 @@ export function CinematicVideo({
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
   const [activated, setActivated] = useState(!lazy);
-  const [showPoster, setShowPoster] = useState(true);
+  const [showPoster, setShowPoster] = useState(Boolean(poster));
   const allowAutoplay = useShouldAutoplayVideo();
   const reduced = usePrefersReducedMotion();
 
+  const shouldAutoplay =
+    activated && autoPlayWhenAllowed && allowAutoplay && !reduced;
+
   useEffect(() => {
-    if (!activated || lazy || !autoPlayWhenAllowed || !allowAutoplay || reduced) {
-      return;
-    }
     const video = videoRef.current;
-    if (!video) return;
-
-    const play = async () => {
-      try {
-        video.muted = true;
-        await video.play();
-        setPlaying(true);
-        setShowPoster(false);
-      } catch {
-        setPlaying(false);
-        setShowPoster(true);
-      }
-    };
-
-    void play();
-  }, [activated, lazy, autoPlayWhenAllowed, allowAutoplay, reduced]);
+    if (!video || !shouldAutoplay) return;
+    return playMuted(video);
+  }, [shouldAutoplay, src]);
 
   const toggle = async () => {
     const video = videoRef.current;
@@ -97,7 +85,7 @@ export function CinematicVideo({
 
   return (
     <div className={`relative overflow-hidden bg-ink-muted ${className}`}>
-      {showPoster || !activated ? (
+      {poster && (showPoster || !activated) ? (
         <Image
           src={poster}
           alt={alt}
@@ -113,14 +101,15 @@ export function CinematicVideo({
           ref={videoRef}
           className={[
             "absolute inset-0 h-full w-full object-cover",
-            showPoster ? "opacity-0" : "opacity-100",
+            poster && showPoster ? "opacity-0" : "opacity-100",
           ].join(" ")}
           src={src}
           poster={poster}
           muted
           playsInline
+          autoPlay={shouldAutoplay}
           loop={loop}
-          preload={lazy ? "none" : "metadata"}
+          preload={shouldAutoplay ? "auto" : "metadata"}
           aria-label={alt}
           onPlay={() => {
             setPlaying(true);
@@ -131,17 +120,19 @@ export function CinematicVideo({
       ) : null}
 
       {overlay ? (
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-ink/30" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/35" />
       ) : null}
 
       <button
         type="button"
         onClick={toggle}
-        className="absolute bottom-5 right-5 z-10 inline-flex items-center gap-2 rounded-sm border border-white/20 bg-ink/70 px-4 py-2 text-sm text-mist backdrop-blur-sm hover:bg-ink/90 transition-colors"
+        className="absolute bottom-4 right-4 z-10 inline-flex items-center gap-2 rounded-sm border border-white/30 bg-black/75 px-3.5 py-2 text-sm font-medium text-white shadow-sm backdrop-blur-sm transition-colors hover:bg-black/90 sm:bottom-5 sm:right-5 sm:px-4"
         aria-label={playing ? "Pause video" : "Play video"}
       >
-        <span aria-hidden>{playing ? "❚❚" : "▶"}</span>
-        {playing ? "Pause" : "Play"}
+        <span aria-hidden className="text-white">
+          {playing ? "❚❚" : "▶"}
+        </span>
+        <span className="text-white">{playing ? "Pause" : "Play"}</span>
       </button>
     </div>
   );

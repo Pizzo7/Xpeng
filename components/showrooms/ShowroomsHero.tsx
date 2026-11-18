@@ -11,7 +11,6 @@ export function ShowroomsHero() {
       <div className="absolute inset-0">
         <CinematicVideo
           src="/videos/xpeng_showroom_multi_models.mp4"
-          poster="/videos/tracking-poster.jpg"
           alt="XPENG models in the Ghana showroom"
           className="h-full w-full"
           autoPlayWhenAllowed

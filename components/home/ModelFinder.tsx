@@ -9,6 +9,7 @@ import { SkeletonImage } from "@/components/media/SkeletonImage";
 import { Reveal } from "@/components/motion";
 import { models } from "@/lib/data";
 import { getModelSpinVideo } from "@/lib/modelMedia";
+import { playMuted } from "@/lib/autoplay";
 import { easeOut, pressPresets, transitions } from "@/lib/motion";
 
 const SWAP_MS = 700;
@@ -29,7 +30,7 @@ const yawVariants = {
 };
 
 /**
- * Model showcase — 360 video when available, otherwise studio poster turntable.
+ * Model showcase — 360 video when available, otherwise a static studio image.
  */
 export function ModelFinder() {
   const list = models.models;
@@ -59,7 +60,7 @@ export function ModelFinder() {
       video.pause();
       return;
     }
-    void video.play().catch(() => undefined);
+    return playMuted(video);
   }, [hovered, swapping, spinVideo, activeId]);
 
   if (!active) return null;
@@ -142,7 +143,6 @@ export function ModelFinder() {
                 exit="exit"
                 transition={{ duration: 0.55, ease: easeOut }}
                 className="absolute inset-0 bg-black"
-                style={spinVideo ? undefined : { transformStyle: "preserve-3d" }}
               >
                 {spinVideo ? (
                   <video
@@ -154,28 +154,18 @@ export function ModelFinder() {
                     muted
                     playsInline
                     loop
-                    preload="none"
+                    preload="auto"
                     aria-label={`${active.fullName} 360 view`}
                   />
                 ) : (
-                  <div
-                    className={[
-                      "absolute inset-0 [transform-style:preserve-3d]",
-                      swapping ? "" : "model-turntable",
-                    ].join(" ")}
-                    style={{
-                      animationPlayState: hovered ? "paused" : "running",
-                    }}
-                  >
-                    <SkeletonImage
-                      src={active.poster}
-                      alt={`${active.fullName} preview`}
-                      fill
-                      quality={75}
-                      className="object-contain object-center p-4 sm:p-6"
-                      sizes="100vw"
-                    />
-                  </div>
+                  <SkeletonImage
+                    src={active.poster}
+                    alt={`${active.fullName} preview`}
+                    fill
+                    quality={75}
+                    className="object-contain object-center p-4 sm:p-6"
+                    sizes="100vw"
+                  />
                 )}
               </motion.div>
             </AnimatePresence>

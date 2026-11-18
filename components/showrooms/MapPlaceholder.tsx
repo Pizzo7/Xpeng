@@ -16,7 +16,6 @@ export function MapPlaceholder({ mapUrl, label }: MapPlaceholderProps) {
       <div className="absolute inset-0 bg-gradient-to-br from-ink via-transparent to-gold/10" />
       <div className="relative z-10 px-4 text-center">
         <p className="text-xs uppercase tracking-brand text-gold">Location</p>
-        <p className="mt-2 text-sm text-mist-dim">{label}</p>
         {hasLink ? (
           <Pressable as="span" variant="icon" className="mt-3 inline-block">
             <a

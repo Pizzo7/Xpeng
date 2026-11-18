@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { playMuted } from "@/lib/autoplay";
 
 interface InViewVideoProps {
   src: string;
@@ -12,8 +13,7 @@ interface InViewVideoProps {
 }
 
 /**
- * Plays muted looping video only while in (or near) the viewport.
- * Keeps preload=none until first intersection to protect mobile data + LCP.
+ * Muted looping video. Starts after the element is mounted and on screen.
  */
 export function InViewVideo({
   src,
@@ -32,16 +32,7 @@ export function InViewVideo({
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        const visible = Boolean(entry?.isIntersecting);
-        setActive(visible);
-        const video = videoRef.current;
-        if (!video) return;
-        if (visible) {
-          video.muted = true;
-          void video.play().catch(() => undefined);
-        } else {
-          video.pause();
-        }
+        setActive(Boolean(entry?.isIntersecting));
       },
       { rootMargin: "120px", threshold: 0.15 },
     );
@@ -50,38 +41,38 @@ export function InViewVideo({
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (!active) {
+      video.pause();
+      return;
+    }
+
+    return playMuted(video);
+  }, [active, src]);
+
   return (
-    <div ref={ref} className={["relative overflow-hidden bg-black", className].join(" ")}>
-      {active ? (
-        <video
-          ref={videoRef}
-          src={src}
-          poster={poster}
-          className={[
-            "absolute inset-0 h-full w-full",
-            fit === "contain" ? "object-contain" : "object-cover",
-          ].join(" ")}
-          muted
-          playsInline
-          loop
-          preload="metadata"
-          aria-label={label}
-        />
-      ) : poster ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={poster}
-          alt={label ?? ""}
-          className={[
-            "absolute inset-0 h-full w-full",
-            fit === "contain" ? "object-contain" : "object-cover",
-          ].join(" ")}
-          loading="lazy"
-          decoding="async"
-        />
-      ) : (
-        <div className="absolute inset-0 bg-ink-muted" />
-      )}
+    <div
+      ref={ref}
+      className={["relative overflow-hidden bg-black", className].join(" ")}
+    >
+      <video
+        ref={videoRef}
+        src={src}
+        poster={poster}
+        className={[
+          "absolute inset-0 h-full w-full",
+          fit === "contain" ? "object-contain" : "object-cover",
+        ].join(" ")}
+        muted
+        playsInline
+        loop
+        autoPlay={active}
+        preload={active ? "auto" : "metadata"}
+        aria-label={label}
+      />
     </div>
   );
 }

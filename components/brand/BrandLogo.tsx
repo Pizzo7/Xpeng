@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { useTheme } from "@/components/theme/ThemeProvider";
 import { site } from "@/lib/data";
 
 interface BrandLogoProps {
@@ -9,15 +8,11 @@ interface BrandLogoProps {
 }
 
 /**
- * Official XPENG mark (white on black asset).
- * On light theme, invert so the mark reads dark on the header.
+ * Official XPENG mark (white on dark).
  */
 export function BrandLogo({
   className = "relative h-9 w-[168px]",
 }: BrandLogoProps) {
-  const { theme } = useTheme();
-  const isLight = theme === "light";
-
   return (
     <div className={className}>
       <Image
@@ -26,12 +21,7 @@ export function BrandLogo({
         fill
         priority
         sizes="168px"
-        className={[
-          "object-contain object-left",
-          isLight ? "brightness-0" : "",
-        ]
-          .filter(Boolean)
-          .join(" ")}
+        className="object-contain object-left"
       />
     </div>
   );

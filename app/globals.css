@@ -137,18 +137,4 @@ button {
   }
 }
 
-@keyframes model-turntable {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(360deg);
-  }
-}
-
-.model-turntable {
-  transform-style: preserve-3d;
-  animation: model-turntable 18s linear infinite;
-}
-
 

@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Button } from "@/components/ui/Button";
-import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { BrandLogo } from "@/components/brand/BrandLogo";
 import { NavDropdown } from "@/components/layout/NavDropdown";
 import { MobileNav } from "@/components/layout/MobileNav";
@@ -18,7 +17,7 @@ import {
 import { durations, easeOut, pressPresets, transitions } from "@/lib/motion";
 
 /**
- * Three-zone header: logo | centered nav (with dropdowns) | theme + Test Drive
+ * Three-zone header: logo | centered nav (with dropdowns) | Test Drive
  */
 export function Header() {
   const pathname = usePathname();
@@ -46,17 +45,17 @@ export function Header() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: durations.normal, ease: easeOut }}
     >
-      <div className="mx-auto flex max-w-content items-center gap-2 px-4 py-3 sm:gap-3 sm:px-6 lg:gap-4 lg:px-8">
+      <div className="relative mx-auto flex w-full max-w-content items-center justify-between gap-2 px-4 py-3 sm:gap-3 sm:px-6 lg:gap-4 lg:px-8">
         <Link
           href="/"
-          className="block min-w-0 shrink"
+          className="relative z-10 block min-w-0 shrink-0"
           aria-label={`${site.companyName} home`}
         >
           <BrandLogo className="relative h-7 w-[132px] sm:h-9 sm:w-[168px]" />
         </Link>
 
         <nav
-          className="hidden flex-1 items-center justify-center gap-7 lg:flex"
+          className="absolute left-1/2 hidden -translate-x-1/2 items-center justify-center gap-7 lg:flex"
           aria-label="Main navigation"
         >
           {primaryNav.map((item) => {
@@ -98,23 +97,18 @@ export function Header() {
           })}
         </nav>
 
-        <div className="ml-auto flex shrink-0 items-center gap-1.5 sm:gap-2.5">
-          <ThemeToggle />
-          <span
-            className="hidden h-5 w-px bg-silver/25 md:block"
-            aria-hidden
-          />
+        <div className="relative z-10 ml-auto flex shrink-0 items-center gap-2 sm:gap-2.5">
           <Button
             href="/test-drive"
             size="sm"
             variant="gold"
-            className="hidden rounded md:inline-flex"
+            className="hidden rounded md:!inline-flex"
           >
             Book a Test Drive
           </Button>
           <motion.button
             type="button"
-            className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded border border-silver/30 text-mist sm:h-10 sm:w-10 lg:hidden"
+            className="relative z-20 inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded border border-silver/30 text-mist sm:h-10 sm:w-10 lg:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             aria-controls="mobile-nav"

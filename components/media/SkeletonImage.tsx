@@ -4,7 +4,7 @@ import Image, { type ImageProps } from "next/image";
 import { useEffect, useState } from "react";
 import { Skeleton } from "@/components/ui/Skeleton";
 
-type SkeletonImageProps = Omit<ImageProps, "onLoad" | "onError"> & {
+type SkeletonImageProps = Omit<ImageProps, "onLoad" | "onError" | "unoptimized"> & {
   /** Extra class on the outer fill wrapper when using fill */
   wrapperClassName?: string;
   /** Keep skeleton visible until the first paint of the image */
@@ -29,13 +29,13 @@ export function SkeletonImage({
 }: SkeletonImageProps) {
   const [loaded, setLoaded] = useState(false);
   const [failed, setFailed] = useState(false);
+  const [useRaw, setUseRaw] = useState(false);
 
   useEffect(() => {
     setLoaded(false);
     setFailed(false);
+    setUseRaw(false);
   }, [src]);
-
-  const markReady = () => setLoaded(true);
 
   const image = (
     <Image
@@ -48,16 +48,19 @@ export function SkeletonImage({
       sizes={sizes ?? (fill ? "100vw" : undefined)}
       loading={priority ? undefined : "lazy"}
       decoding="async"
-      onLoad={markReady}
+      unoptimized={useRaw}
+      onLoad={() => setLoaded(true)}
       onError={() => {
+        // Production optimizer can reject a file the browser can still draw.
+        if (!useRaw) {
+          setUseRaw(true);
+          setLoaded(false);
+          return;
+        }
         setFailed(true);
         setLoaded(true);
       }}
-      className={[
-        className,
-        "transition-opacity duration-500 ease-out",
-        loaded ? "opacity-100" : "opacity-0",
-      ].join(" ")}
+      className={[className, failed ? "opacity-0" : "opacity-100"].join(" ")}
     />
   );
 

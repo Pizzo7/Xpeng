@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import {
@@ -88,9 +89,26 @@ function MobileAccordion({
   );
 }
 
-/** Mobile drawer with Models + Discover accordions */
+/** Mobile drawer — portaled to body so header transforms cannot trap it */
 export function MobileNav({ open, onClose, pathname }: MobileNavProps) {
-  return (
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, [open]);
+
+  if (!mounted) return null;
+
+  return createPortal(
     <AnimatePresence>
       {open ? (
         <>
@@ -98,7 +116,7 @@ export function MobileNav({ open, onClose, pathname }: MobileNavProps) {
             key="mobile-overlay"
             type="button"
             aria-label="Close menu"
-            className="fixed inset-0 z-[60] cursor-pointer bg-overlay lg:hidden"
+            className="fixed inset-0 z-[80] cursor-pointer bg-black/60 lg:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -108,7 +126,7 @@ export function MobileNav({ open, onClose, pathname }: MobileNavProps) {
           <motion.aside
             key="mobile-drawer"
             id="mobile-nav"
-            className="fixed top-0 right-0 z-[70] flex h-full w-[min(100%,20rem)] flex-col border-l border-silver/20 bg-ink-soft lg:hidden"
+            className="fixed inset-y-0 right-0 z-[90] flex h-[100dvh] w-[min(100%,20rem)] flex-col border-l border-silver/20 bg-ink-soft lg:hidden"
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
@@ -176,6 +194,7 @@ export function MobileNav({ open, onClose, pathname }: MobileNavProps) {
           </motion.aside>
         </>
       ) : null}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   );
 }

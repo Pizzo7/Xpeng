@@ -5,7 +5,7 @@ import { CinematicVideo } from "@/components/media/CinematicVideo";
 
 interface LazyVideoProps {
   src: string;
-  poster: string;
+  poster?: string;
   alt: string;
   className?: string;
   loop?: boolean;
@@ -53,14 +53,16 @@ export function LazyVideo({
           autoPlayWhenAllowed={false}
         />
       ) : (
-        <div className="relative h-full w-full min-h-[240px] bg-ink-muted">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={poster}
-            alt={alt}
-            className="absolute inset-0 h-full w-full object-cover"
-            loading="lazy"
-          />
+        <div className="relative h-full min-h-[240px] w-full bg-ink-muted">
+          {poster ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={poster}
+              alt={alt}
+              className="absolute inset-0 h-full w-full object-cover"
+              loading="lazy"
+            />
+          ) : null}
         </div>
       )}
     </div>

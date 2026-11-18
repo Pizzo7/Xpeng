@@ -35,7 +35,10 @@ export function ParallaxFrame({
   );
 
   return (
-    <div ref={ref} className={["overflow-hidden", className].filter(Boolean).join(" ")}>
+    <div
+      ref={ref}
+      className={["relative overflow-hidden", className].filter(Boolean).join(" ")}
+    >
       <motion.div className="h-full w-full" style={{ y }}>
         <div className="h-[120%] w-full -mt-[10%]">{children}</div>
       </motion.div>

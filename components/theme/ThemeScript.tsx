@@ -1,9 +1,8 @@
 /**
- * Inline theme boot script (App Router safe).
- * Default remains dark; avoids flash before React hydrates.
+ * Force dark brand theme before paint (clears any old light preference).
  */
 export function ThemeScript() {
-  const code = `(function(){try{var t=localStorage.getItem('xpeng-ghana-theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}else{document.documentElement.setAttribute('data-theme','dark');}}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`;
+  const code = `(function(){try{localStorage.removeItem('xpeng-ghana-theme');}catch(e){}document.documentElement.setAttribute('data-theme','dark');})();`;
 
   return (
     <script

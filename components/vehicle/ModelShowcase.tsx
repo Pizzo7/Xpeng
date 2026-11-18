@@ -7,6 +7,7 @@ import { MediaReveal, Pressable } from "@/components/motion";
 import { Button } from "@/components/ui/Button";
 import type { ColorOption, GalleryItem } from "@/lib/types";
 import { formatGhs } from "@/lib/format";
+import { playMuted } from "@/lib/autoplay";
 import { getModelSpinVideo } from "@/lib/modelMedia";
 import { durations, easeOut } from "@/lib/motion";
 
@@ -60,8 +61,7 @@ export function ModelShowcase({
   useEffect(() => {
     const video = videoRef.current;
     if (!video || !spinVideo || !showVideo) return;
-    video.muted = true;
-    void video.play().catch(() => undefined);
+    return playMuted(video);
   }, [spinVideo, showVideo, modelId]);
 
   if (!activeColor && !spinVideo) return null;
@@ -93,6 +93,7 @@ export function ModelShowcase({
             loop
             playsInline
             autoPlay
+            preload="auto"
             poster={activeColor?.image ?? gallery[0]?.src}
             aria-label={`${modelName} 360 view`}
           />
