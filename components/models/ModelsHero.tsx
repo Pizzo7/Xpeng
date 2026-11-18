@@ -24,7 +24,7 @@ export function ModelsHero() {
           alt={`${featured?.name ?? "XPENG"} lineup visual`}
           fill
           priority
-          quality={90}
+          quality={80}
           className="object-contain object-right object-bottom p-6 sm:p-10 md:p-14"
           sizes="100vw"
         />
@@ -32,7 +32,7 @@ export function ModelsHero() {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50" />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-[78svh] max-w-content flex-col justify-end px-5 pb-16 pt-32 sm:px-8 sm:pb-20">
+      <div className="relative z-10 mx-auto flex min-h-[78svh] max-w-content flex-col justify-end px-4 pb-16 pt-28 sm:px-6 sm:pb-20 sm:pt-32 lg:px-8">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -52,27 +52,37 @@ export function ModelsHero() {
           </motion.p>
           <motion.h1
             variants={staggerItem}
-            className="font-display text-4xl sm:text-5xl md:text-6xl text-mist leading-[1.05]"
+            className="font-display text-3xl leading-[1.05] text-mist sm:text-5xl md:text-6xl"
           >
             {models.headline}
           </motion.h1>
           <motion.p
             variants={staggerItem}
-            className="mt-4 max-w-xl text-mist-dim text-base sm:text-lg leading-relaxed"
+            className="mt-4 max-w-xl text-sm leading-relaxed text-mist-dim sm:text-base md:text-lg"
           >
             {models.subheadline}
           </motion.p>
           <motion.div
             variants={staggerItem}
-            className="mt-8 flex flex-wrap gap-3"
+            className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap"
             transition={{ duration: durations.normal, ease: easeOut }}
           >
             {featured ? (
-              <Button href={featured.href} variant="gold" size="lg">
+              <Button
+                href={featured.href}
+                variant="gold"
+                size="lg"
+                className="w-full sm:w-auto"
+              >
                 Explore {featured.name}
               </Button>
             ) : null}
-            <Button href="/test-drive" variant="secondary" size="lg">
+            <Button
+              href="/test-drive"
+              variant="secondary"
+              size="lg"
+              className="w-full sm:w-auto"
+            >
               Book a Test Drive
             </Button>
           </motion.div>

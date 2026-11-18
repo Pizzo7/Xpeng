@@ -110,7 +110,7 @@ export function ModelShowcase({
                 src={displaySrc}
                 alt={displayAlt}
                 fill
-                quality={90}
+                quality={80}
                 className="object-contain object-center p-4 sm:p-8"
                 sizes="(max-width: 1024px) 100vw, 960px"
                 priority
@@ -120,7 +120,7 @@ export function ModelShowcase({
         ) : null}
       </MediaReveal>
 
-      <div className="grid gap-6 border-t border-silver/15 p-5 sm:p-6 md:grid-cols-2 md:items-center md:gap-8">
+      <div className="grid gap-5 border-t border-silver/15 p-4 sm:gap-6 sm:p-6 md:grid-cols-2 md:items-center md:gap-8">
         <div className="space-y-4">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
             {activeColor ? (
@@ -227,21 +227,31 @@ export function ModelShowcase({
           ) : null}
         </div>
 
-        <div className="flex flex-col gap-4 md:items-end md:text-right">
+        <div className="flex flex-col gap-4 border-t border-silver/10 pt-5 md:items-end md:border-t-0 md:pt-0 md:text-right">
           <div>
             <p className="text-xs uppercase tracking-brand text-gold">From</p>
-            <p className="mt-1 font-display text-3xl leading-none text-mist sm:text-4xl">
+            <p className="mt-1 break-words font-display text-2xl leading-none text-mist sm:text-3xl md:text-4xl">
               {priceGhs > 0 ? formatGhs(priceGhs) : "Ask for pricing"}
             </p>
             <p className="mt-2 max-w-sm text-sm leading-relaxed text-mist-dim md:ml-auto">
               {priceNote}
             </p>
           </div>
-          <div className="flex flex-wrap gap-3 md:justify-end">
-            <Button href="/test-drive" variant="gold" size="sm">
+          <div className="flex w-full flex-col gap-2.5 sm:w-auto sm:flex-row sm:flex-wrap sm:gap-3 md:justify-end">
+            <Button
+              href="/test-drive"
+              variant="gold"
+              size="sm"
+              className="w-full sm:w-auto"
+            >
               Book Test Drive
             </Button>
-            <Button href="/contact?intent=quote" variant="secondary" size="sm">
+            <Button
+              href="/contact?intent=quote"
+              variant="secondary"
+              size="sm"
+              className="w-full sm:w-auto"
+            >
               Request a Quote
             </Button>
           </div>

@@ -27,8 +27,8 @@ export function ModelCard({ model }: ModelCardProps) {
             src={model.poster}
             alt={`${model.fullName} visual`}
             fill
-            quality={90}
-            sizes="(max-width: 768px) 100vw, 50vw"
+            quality={75}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="object-contain object-center p-3 transition-transform duration-700 ease-premium group-hover:scale-[1.03] sm:p-4"
           />
         </div>

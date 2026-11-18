@@ -1,5 +1,6 @@
 "use client";
 
+import { InViewVideo } from "@/components/media/InViewVideo";
 import { ParallaxFrame } from "@/components/motion";
 
 interface LifestyleParallaxMediaProps {
@@ -9,7 +10,7 @@ interface LifestyleParallaxMediaProps {
 }
 
 /**
- * Lifestyle card media — muted autoplay loop with light desktop parallax.
+ * Lifestyle card media — muted in-view loop with light desktop parallax.
  */
 export function LifestyleParallaxMedia({
   video,
@@ -18,16 +19,11 @@ export function LifestyleParallaxMedia({
 }: LifestyleParallaxMediaProps) {
   return (
     <ParallaxFrame className="aspect-video bg-black" distance={40}>
-      <video
+      <InViewVideo
         src={video}
         poster={poster}
-        className="h-full w-full object-cover"
-        autoPlay
-        muted
-        playsInline
-        loop
-        preload="metadata"
-        aria-label={alt}
+        label={alt}
+        className="absolute inset-0 h-full w-full"
       />
     </ParallaxFrame>
   );

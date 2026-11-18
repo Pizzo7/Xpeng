@@ -22,6 +22,8 @@ export function SkeletonImage({
   alt,
   fill,
   priority = false,
+  quality = 75,
+  sizes,
   src,
   ...props
 }: SkeletonImageProps) {
@@ -42,7 +44,10 @@ export function SkeletonImage({
       alt={alt}
       fill={fill}
       priority={priority}
+      quality={quality}
+      sizes={sizes ?? (fill ? "100vw" : undefined)}
       loading={priority ? undefined : "lazy"}
+      decoding="async"
       onLoad={markReady}
       onError={() => {
         setFailed(true);

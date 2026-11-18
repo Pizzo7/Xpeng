@@ -46,13 +46,13 @@ export function Header() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: durations.normal, ease: easeOut }}
     >
-      <div className="mx-auto flex max-w-content items-center gap-4 px-5 py-3 sm:px-8">
+      <div className="mx-auto flex max-w-content items-center gap-2 px-4 py-3 sm:gap-3 sm:px-6 lg:gap-4 lg:px-8">
         <Link
           href="/"
-          className="block shrink-0"
+          className="block min-w-0 shrink"
           aria-label={`${site.companyName} home`}
         >
-          <BrandLogo className="relative h-9 w-[168px]" />
+          <BrandLogo className="relative h-7 w-[132px] sm:h-9 sm:w-[168px]" />
         </Link>
 
         <nav
@@ -98,31 +98,23 @@ export function Header() {
           })}
         </nav>
 
-        <div className="ml-auto flex items-center gap-2 sm:gap-2.5">
+        <div className="ml-auto flex shrink-0 items-center gap-1.5 sm:gap-2.5">
           <ThemeToggle />
           <span
-            className="hidden h-5 w-px bg-silver/25 sm:block"
+            className="hidden h-5 w-px bg-silver/25 md:block"
             aria-hidden
           />
           <Button
             href="/test-drive"
             size="sm"
             variant="gold"
-            className="hidden rounded sm:inline-flex"
+            className="hidden rounded md:inline-flex"
           >
             Book a Test Drive
           </Button>
-          <Button
-            href="/test-drive"
-            size="sm"
-            variant="gold"
-            className="rounded sm:hidden"
-          >
-            Test Drive
-          </Button>
           <motion.button
             type="button"
-            className="inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded border border-silver/30 text-mist lg:hidden"
+            className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded border border-silver/30 text-mist sm:h-10 sm:w-10 lg:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             aria-controls="mobile-nav"

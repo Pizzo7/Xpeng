@@ -3,23 +3,13 @@
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
+import { InViewVideo } from "@/components/media/InViewVideo";
 import { Reveal, Stagger, StaggerItem, TiltCard } from "@/components/motion";
 import { getFeaturedModel, site } from "@/lib/data";
 
 function CardVideo({ src, label }: { src: string; label: string }) {
   return (
-    <div className="relative aspect-[4/3] bg-black">
-      <video
-        src={src}
-        className="absolute inset-0 h-full w-full object-cover"
-        autoPlay
-        muted
-        playsInline
-        loop
-        preload="metadata"
-        aria-label={label}
-      />
-    </div>
+    <InViewVideo src={src} label={label} className="aspect-[4/3]" />
   );
 }
 

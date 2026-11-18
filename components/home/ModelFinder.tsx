@@ -154,7 +154,7 @@ export function ModelFinder() {
                     muted
                     playsInline
                     loop
-                    preload="metadata"
+                    preload="none"
                     aria-label={`${active.fullName} 360 view`}
                   />
                 ) : (
@@ -171,7 +171,7 @@ export function ModelFinder() {
                       src={active.poster}
                       alt={`${active.fullName} preview`}
                       fill
-                      quality={90}
+                      quality={75}
                       className="object-contain object-center p-4 sm:p-6"
                       sizes="100vw"
                     />

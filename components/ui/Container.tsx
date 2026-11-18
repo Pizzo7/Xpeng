@@ -14,7 +14,7 @@ export function Container({
   return (
     <div
       className={[
-        "mx-auto w-full px-5 sm:px-8",
+        "mx-auto w-full px-4 sm:px-6 lg:px-8",
         narrow ? "max-w-narrow" : "max-w-content",
         className,
       ].join(" ")}

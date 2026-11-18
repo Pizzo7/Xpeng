@@ -46,10 +46,10 @@ export function Hero() {
       </div>
 
       {/* CHANGE 1: lighter gradient + much less padding = smaller dark area */}
-      <div className="relative z-10 w-full bg-gradient-to-t from-black/80 via-black/30 to-transparent pb-16 pt-20 sm:pb-20 md:pb-24">
-        <div className="mx-auto max-w-content px-5 sm:px-8">
+      <div className="relative z-10 w-full bg-gradient-to-t from-black/80 via-black/30 to-transparent pb-20 pt-24 sm:pb-20 md:pb-24">
+        <div className="mx-auto max-w-content px-4 sm:px-6 lg:px-8">
           <motion.div
-            className="max-w-md" /* CHANGE 2: narrower text area */
+            className="max-w-md"
             style={{ opacity: copyOpacity, y: copyY }}
           >
             <motion.div
@@ -65,23 +65,21 @@ export function Hero() {
               {/* CHANGE 3: smaller headline */}
               <motion.h1
                 variants={staggerItem}
-                className="font-display text-3xl leading-[1.05] text-balance text-white sm:text-4xl md:text-5xl"
+                className="font-display text-[1.85rem] leading-[1.05] text-balance text-white sm:text-4xl md:text-5xl"
               >
                 Where next?
               </motion.h1>
 
-              {/* CHANGE 4: one short line */}
               <motion.p
                 variants={staggerItem}
-                className="mt-3 text-base leading-relaxed text-white/75"
+                className="mt-3 text-sm leading-relaxed text-white/75 sm:text-base"
               >
                 Explore the XPENG lineup in Ghana.
               </motion.p>
 
-              {/* CHANGE 5: one button + a small text link */}
               <motion.div
                 variants={staggerItem}
-                className="mt-6 flex items-center gap-5"
+                className="mt-6 flex flex-wrap items-center gap-4 sm:gap-5"
                 transition={{ duration: 0.55, ease: easeOut }}
               >
                 <Button href="/models" variant="gold" size="md">

@@ -95,7 +95,7 @@ export function AssemblyStory() {
                 playsInline
                 loop
                 autoPlay
-                preload="auto"
+                preload="metadata"
                 className="absolute inset-0 h-full w-full object-cover"
                 aria-label={steps[active]?.title ?? "Technology story"}
               />

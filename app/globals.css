@@ -50,6 +50,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -60,7 +61,16 @@ html {
 
 body {
   @apply bg-ink text-mist antialiased font-sans;
+  overflow-x: clip;
   transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+img,
+video,
+iframe,
+canvas,
+svg {
+  max-width: 100%;
 }
 
 ::selection {
