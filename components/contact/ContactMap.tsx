@@ -11,10 +11,14 @@ interface ContactMapProps {
 export function ContactMap({ location }: ContactMapProps) {
   return (
     <div className="overflow-hidden rounded-sm border border-silver/20 bg-ink-soft shadow-[0_24px_60px_-28px_rgba(0,0,0,0.55)]">
-      <div className="flex flex-wrap items-end justify-between gap-3 border-b border-silver/15 px-5 py-4 sm:px-6">
-        <div>
-          <h3 className="font-display text-xl text-mist">{location.name}</h3>
-          <p className="mt-1 text-sm text-mist-dim">{location.address}</p>
+      <div className="flex flex-wrap items-end justify-between gap-3 border-b border-silver/15 px-4 py-4 sm:px-6">
+        <div className="min-w-0 flex-1">
+          <h3 className="font-display text-lg text-mist sm:text-xl">
+            {location.name}
+          </h3>
+          <p className="mt-1 break-words text-sm text-mist-dim">
+            {location.address}
+          </p>
         </div>
         <a
           href={location.mapUrl}

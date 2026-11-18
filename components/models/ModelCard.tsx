@@ -46,13 +46,15 @@ export function ModelCard({ model }: ModelCardProps) {
             </p>
           </div>
 
-          <dl className="mt-auto grid grid-cols-3 gap-2 border-t border-silver/10 pt-4">
+          <dl className="mt-auto grid grid-cols-3 gap-1.5 border-t border-silver/10 pt-4 sm:gap-2">
             {model.highlights.map((item) => (
-              <div key={item.label}>
+              <div key={item.label} className="min-w-0">
                 <dt className="text-[10px] uppercase tracking-brand text-silver">
                   {item.label}
                 </dt>
-                <dd className="mt-1 text-xs text-mist">{item.value}</dd>
+                <dd className="mt-1 break-words text-[11px] leading-snug text-mist sm:text-xs">
+                  {item.value}
+                </dd>
               </div>
             ))}
           </dl>

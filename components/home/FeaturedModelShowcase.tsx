@@ -88,11 +88,11 @@ export function FeaturedModelShowcase() {
               key={spec.label}
               direction={index % 2 === 0 ? "left" : "right"}
             >
-              <TiltCard className="border border-silver/15 bg-ink-soft p-5 transition-colors hover:border-gold/40">
+              <TiltCard className="border border-silver/15 bg-ink-soft p-4 transition-colors hover:border-gold/40 sm:p-5">
                 <dt className="text-xs uppercase tracking-brand text-silver">
                   {spec.label}
                 </dt>
-                <dd className="mt-2 font-display text-2xl text-mist">
+                <dd className="mt-2 break-words font-display text-lg text-mist sm:text-2xl">
                   {spec.value}
                 </dd>
               </TiltCard>

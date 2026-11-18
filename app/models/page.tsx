@@ -59,7 +59,7 @@ export default function ModelsPage() {
                 </div>
                 <Reveal direction="right" delay={0.08}>
                   <TiltCard className="border border-silver/15 bg-ink p-6 transition-colors hover:border-gold/40 sm:p-8">
-                    <p className="font-sans text-5xl tracking-tight text-mist sm:text-6xl">
+                    <p className="font-sans text-4xl tracking-tight text-mist sm:text-5xl md:text-6xl">
                       {featured.name}
                     </p>
                     <ul className="mt-6 space-y-3">

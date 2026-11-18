@@ -34,7 +34,7 @@ export function CookieNotice() {
     <div
       role="dialog"
       aria-label="Cookie notice"
-      className="fixed bottom-4 left-4 right-4 z-[60] mx-auto max-w-xl rounded-sm border border-silver/20 bg-ink-soft/95 p-4 shadow-2xl backdrop-blur-md sm:left-6 sm:right-auto"
+      className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] left-4 right-4 z-[60] mx-auto max-w-xl rounded-sm border border-silver/20 bg-ink-soft/95 p-4 shadow-2xl backdrop-blur-md sm:left-6 sm:right-auto"
     >
       <p className="text-sm text-mist-dim leading-relaxed">
         We use essential cookies to keep this site working. See our{" "}

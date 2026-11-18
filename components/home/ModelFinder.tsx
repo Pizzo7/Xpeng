@@ -188,9 +188,14 @@ export function ModelFinder() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.35, ease: easeOut }}
-                className="absolute bottom-5 right-5 z-[5] flex justify-end pl-10 sm:pl-12"
+                className="absolute inset-x-3 bottom-3 z-[5] flex sm:inset-x-auto sm:bottom-5 sm:right-5 sm:justify-end sm:pl-12"
               >
-                <Button href={active.href} variant="secondary" className="rounded">
+                <Button
+                  href={active.href}
+                  variant="secondary"
+                  size="sm"
+                  className="w-full rounded sm:w-auto"
+                >
                   Explore {active.name}
                 </Button>
               </motion.div>

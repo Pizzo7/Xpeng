@@ -72,7 +72,7 @@ export default async function ModelDetailPage({ params }: PageProps) {
               Specifications
             </h2>
           </Reveal>
-          <div className="border border-silver/15 bg-ink-soft px-5 sm:px-8">
+          <div className="border border-silver/15 bg-ink-soft px-4 sm:px-6 lg:px-8">
             <SpecsTable rows={model.specRows} />
           </div>
         </div>
