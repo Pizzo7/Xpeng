@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark is the default brand look */
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #0a0a0a;
+  --ink-soft: #121212;
+  --ink-muted: #1a1a1a;
+  --mist: #f5f5f5;
+  --mist-dim: #c8c8c8;
+  --mist-soft: #9a9a9a;
+  --silver: #a8a8a8;
+  --silver-bright: #d4d4d4;
+  --silver-dark: #6b6b6b;
+  --gold: #c4a35a;
+  --gold-soft: #d4b96a;
+  --gold-dim: #8a7340;
+  /* Always-dark text on gold / primary solid fills */
+  --on-gold: #0a0a0a;
+  --surface-hover: rgba(255, 255, 255, 0.06);
+  --header-bg: rgba(10, 10, 10, 0.88);
+  --header-bg-top: rgba(10, 10, 10, 0.7);
+  --overlay: rgba(10, 10, 10, 0.7);
+}
+
+/* Light / white mode — stronger ink contrast for body copy */
+[data-theme="light"] {
+  color-scheme: light;
+  --ink: #f3f3f0;
+  --ink-soft: #ffffff;
+  --ink-muted: #e6e6e1;
+  --mist: #0c0c0c;
+  --mist-dim: #2e2e2e;
+  --mist-soft: #525252;
+  --silver: #6f6f6f;
+  --silver-bright: #404040;
+  --silver-dark: #9a9a9a;
+  --gold: #8f7132;
+  --gold-soft: #a8883f;
+  --gold-dim: #7a612c;
+  --on-gold: #0a0a0a;
+  --surface-hover: rgba(0, 0, 0, 0.05);
+  --header-bg: rgba(255, 255, 255, 0.94);
+  --header-bg-top: rgba(243, 243, 240, 0.88);
+  --overlay: rgba(18, 18, 18, 0.45);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  @apply bg-ink text-mist antialiased font-sans;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--gold) 35%, transparent);
+  color: var(--mist);
+}
+
+/* Interactive defaults — pointer + smooth colour shifts */
+a,
+button,
+[role="button"],
+[role="tab"],
+[role="option"],
+[role="radio"],
+summary,
+label[for],
+input[type="submit"],
+input[type="button"],
+select {
+  cursor: pointer;
+}
+
+a,
+button {
+  @apply transition-colors duration-75 ease-out;
+}
+
+/* Focus rings for accessibility */
+:focus-visible {
+  @apply outline-2 outline-offset-2 outline-gold;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .grain {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  }
+
+  .bg-header {
+    background-color: var(--header-bg);
+  }
+
+  .bg-header-top {
+    background-color: var(--header-bg-top);
+  }
+
+  .bg-overlay {
+    background-color: var(--overlay);
+  }
+
+  .bg-surface-hover {
+    background-color: var(--surface-hover);
+  }
+
+  .hover\:bg-surface-hover:hover {
+    background-color: var(--surface-hover);
+  }
+
+  .text-on-gold {
+    color: var(--on-gold);
+  }
+}
+
+@keyframes model-turntable {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.model-turntable {
+  transform-style: preserve-3d;
+  animation: model-turntable 18s linear infinite;
+}
+
+

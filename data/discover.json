@@ -1,0 +1,93 @@
+{
+  "chargingPoints": {
+    "headline": "Charging points in Ghana",
+    "subheadline": "Public and partner charging locations for XPENG owners across major cities.",
+    "intro": "Charge at home with a wallbox, or use partner sites in Accra and beyond. Our team can help you plan routes and recommend suitable connectors for your model.",
+    "points": [
+      {
+        "id": "accra-airport-city",
+        "name": "Airport City Accra Hub",
+        "city": "Accra",
+        "address": "Liberation Road, Airport City, Accra",
+        "type": "DC fast + AC",
+        "access": "Public / partner",
+        "hours": "24 hours",
+        "note": "CCS connector · Ideal for showroom visits and city top-ups."
+      },
+      {
+        "id": "accra-east-legon",
+        "name": "East Legon Charge Point",
+        "city": "Accra",
+        "address": "American House area, East Legon, Accra",
+        "type": "AC",
+        "access": "Public",
+        "hours": "Daily 07:00–22:00",
+        "note": "Convenient for residential and office charging."
+      },
+      {
+        "id": "kumasi-central",
+        "name": "Kumasi Central Partner Site",
+        "city": "Kumasi",
+        "address": "Harper Road, Adum, Kumasi",
+        "type": "AC",
+        "access": "Partner site",
+        "hours": "Daily 08:00–20:00",
+        "note": "Near the Kumasi showroom for easy service visits."
+      }
+    ]
+  },
+  "news": {
+    "headline": "News from XPENG Ghana",
+    "subheadline": "Launches, events, and ownership updates from across the country.",
+    "articles": [
+      {
+        "id": "lineup-arrival",
+        "title": "XPENG lineup now available in Ghana",
+        "date": "12 March 2026",
+        "excerpt": "Customers can explore the full XPENG range at our Accra Experience Centre, with guided tours and test-drive bookings open daily.",
+        "category": "Launch"
+      },
+      {
+        "id": "charging-network",
+        "title": "Expanding charging access across major cities",
+        "date": "28 February 2026",
+        "excerpt": "New partner charge points in Accra and Kumasi make home-to-highway journeys simpler for XPENG owners.",
+        "category": "Charging"
+      },
+      {
+        "id": "service-support",
+        "title": "Service support built for Ghana owners",
+        "date": "10 January 2026",
+        "excerpt": "From scheduled maintenance to roadside assistance, XPENG Ghana keeps ownership clear and close to home.",
+        "category": "Service"
+      }
+    ]
+  },
+  "services": {
+    "headline": "Services",
+    "subheadline": "Maintenance, warranty support, and owner care across Ghana.",
+    "intro": "Whether you drive a flagship SUV or a family MPV, our service team helps you keep your XPENG ready for Accra traffic and long-distance trips.",
+    "items": [
+      {
+        "id": "maintenance",
+        "title": "Scheduled maintenance",
+        "description": "Routine checks, tyre care, and software updates at authorised XPENG service points."
+      },
+      {
+        "id": "warranty",
+        "title": "Warranty support",
+        "description": "Clear guidance on covered repairs and claims handling through our Accra and Kumasi teams."
+      },
+      {
+        "id": "body-repair",
+        "title": "Body and paint",
+        "description": "Accident repair and finish work through approved body partners who know XPENG materials."
+      },
+      {
+        "id": "roadside",
+        "title": "Roadside assistance",
+        "description": "24/7 emergency support for battery, tyre, and recovery needs on Ghana’s major routes."
+      }
+    ]
+  }
+}

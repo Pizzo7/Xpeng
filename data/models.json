@@ -1,0 +1,220 @@
+{
+  "headline": "XPENG Models",
+  "subheadline": "Explore the XPENG lineup for Ghana — SUVs, sedans, and family MPVs.",
+  "categories": [
+    {
+      "id": "all",
+      "label": "All"
+    },
+    {
+      "id": "suv",
+      "label": "SUV"
+    },
+    {
+      "id": "sedan",
+      "label": "Sedan"
+    },
+    {
+      "id": "mpv",
+      "label": "MPV"
+    }
+  ],
+  "models": [
+    {
+      "id": "g9l",
+      "name": "G9L",
+      "fullName": "XPENG G9L",
+      "category": "suv",
+      "tagline": "Flagship SUV — now in Ghana",
+      "description": "Our flagship electric SUV for family and executive journeys, with refined comfort and confident highway range.",
+      "status": "available",
+      "statusLabel": "",
+      "href": "/models/g9l",
+      "image": "/brand/xpeng_models/XPENG_G9L_Arctic_White_Front.jpg",
+      "poster": "/brand/xpeng_models/XPENG_G9L_Arctic_White_Front.jpg",
+      "highlights": [
+        {
+          "label": "Range",
+          "value": "650 km*"
+        },
+        {
+          "label": "Charging",
+          "value": "10–80% ~20 min*"
+        },
+        {
+          "label": "Drive",
+          "value": "AWD"
+        }
+      ],
+      "featured": true
+    },
+    {
+      "id": "l03",
+      "name": "L03",
+      "fullName": "XPENG L03",
+      "category": "sedan",
+      "tagline": "Smart everyday electric",
+      "description": "A versatile electric model for city driving and weekend trips, with a modern cabin and efficient range.",
+      "status": "coming",
+      "statusLabel": "",
+      "href": "/models/l03",
+      "image": "/brand/xpeng_models/XPENG_L03_Space_Silver.jpg",
+      "poster": "/brand/xpeng_models/XPENG_L03_Space_Silver.jpg",
+      "highlights": [
+        {
+          "label": "Range",
+          "value": "520 km*"
+        },
+        {
+          "label": "Charging",
+          "value": "Fast DC*"
+        },
+        {
+          "label": "Drive",
+          "value": "RWD*"
+        }
+      ],
+      "featured": false
+    },
+    {
+      "id": "x9",
+      "name": "X9",
+      "fullName": "XPENG X9",
+      "category": "mpv",
+      "tagline": "Space-first electric MPV",
+      "description": "A family MPV with flexible seating and generous luggage space for school runs, travel, and group journeys.",
+      "status": "inquiry",
+      "statusLabel": "",
+      "href": "/models/x9",
+      "image": "/brand/xpeng_models/XPENG_X9_Arctic_White_Front.jpg",
+      "poster": "/brand/xpeng_models/XPENG_X9_Arctic_White_Front.jpg",
+      "highlights": [
+        {
+          "label": "Seating",
+          "value": "6–7 seats*"
+        },
+        {
+          "label": "Range",
+          "value": "580 km*"
+        },
+        {
+          "label": "Drive",
+          "value": "AWD*"
+        }
+      ],
+      "featured": false
+    },
+    {
+      "id": "p7-plus",
+      "name": "P7+",
+      "fullName": "XPENG P7+",
+      "category": "sedan",
+      "tagline": "Elevated electric sedan",
+      "description": "A refined sedan with extra presence and comfort for Accra evenings and longer coastal drives.",
+      "status": "coming",
+      "statusLabel": "",
+      "href": "/models/p7-plus",
+      "image": "/brand/xpeng_models/XPENG_P7_Plus_Starry_Blue.jpg",
+      "poster": "/brand/xpeng_models/XPENG_P7_Plus_Starry_Blue.jpg",
+      "highlights": [
+        {
+          "label": "Range",
+          "value": "620 km*"
+        },
+        {
+          "label": "Charging",
+          "value": "Fast DC*"
+        },
+        {
+          "label": "Drive",
+          "value": "RWD*"
+        }
+      ],
+      "featured": false
+    },
+    {
+      "id": "g9",
+      "name": "G9",
+      "fullName": "XPENG G9",
+      "category": "suv",
+      "tagline": "Premium electric SUV",
+      "description": "A premium SUV with a quiet cabin and strong presence — built for mixed city traffic and intercity routes.",
+      "status": "coming",
+      "statusLabel": "",
+      "href": "/models/g9",
+      "image": "/brand/xpeng_models/XPENG_G9_Pearl_White_Front.jpg",
+      "poster": "/brand/xpeng_models/XPENG_G9_Pearl_White_Front.jpg",
+      "highlights": [
+        {
+          "label": "Range",
+          "value": "640 km*"
+        },
+        {
+          "label": "Charging",
+          "value": "Fast DC*"
+        },
+        {
+          "label": "Drive",
+          "value": "AWD*"
+        }
+      ],
+      "featured": false
+    },
+    {
+      "id": "g6",
+      "name": "G6",
+      "fullName": "XPENG G6",
+      "category": "suv",
+      "tagline": "Everyday electric SUV",
+      "description": "An agile electric SUV for Accra traffic and weekend escapes, with a modern cabin and confident handling.",
+      "status": "coming",
+      "statusLabel": "",
+      "href": "/models/g6",
+      "image": "/brand/xpeng_models/XPENG_G6_Midnight_Blue_Front.jpg",
+      "poster": "/brand/xpeng_models/XPENG_G6_Midnight_Blue_Front.jpg",
+      "highlights": [
+        {
+          "label": "Range",
+          "value": "570 km*"
+        },
+        {
+          "label": "Charging",
+          "value": "Fast DC*"
+        },
+        {
+          "label": "Drive",
+          "value": "RWD / AWD*"
+        }
+      ],
+      "featured": false
+    },
+    {
+      "id": "p7",
+      "name": "P7",
+      "fullName": "XPENG P7",
+      "category": "sedan",
+      "tagline": "Performance electric sedan",
+      "description": "A sleek performance sedan with expressive design and a calm cabin for city and highway driving.",
+      "status": "coming",
+      "statusLabel": "",
+      "href": "/models/p7",
+      "image": "/brand/xpeng_models/XPENG_P7_Cosmic_Black.jpg",
+      "poster": "/brand/xpeng_models/XPENG_P7_Cosmic_Black.jpg",
+      "highlights": [
+        {
+          "label": "Range",
+          "value": "600 km*"
+        },
+        {
+          "label": "Charging",
+          "value": "Fast DC*"
+        },
+        {
+          "label": "Drive",
+          "value": "RWD*"
+        }
+      ],
+      "featured": false
+    }
+  ]
+}

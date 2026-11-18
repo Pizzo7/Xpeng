@@ -1,0 +1,62 @@
+{
+  "companyName": "XPENG Ghana",
+  "distributorWording": "Authorized XPENG distributor in Ghana",
+  "tagline": "Electric mobility, available in Ghana",
+  "phone": "+233 30 274 5800",
+  "whatsapp": "+233 55 812 3400",
+  "email": "hello@xpengghana.com",
+  "siteUrl": "https://www.xpengghana.com",
+  "socials": {
+    "instagram": "https://instagram.com/xpengghana",
+    "facebook": "https://facebook.com/xpengghana",
+    "youtube": "https://youtube.com/@xpengghana",
+    "x": "https://x.com/xpengghana"
+  },
+  "cities": ["Accra", "Kumasi", "Takoradi", "Tema", "Cape Coast"],
+  "contactLocation": {
+    "name": "XPENG Ghana — Accra Experience Centre",
+    "address": "Plot 14, Liberation Road, Airport City, Accra, Ghana",
+    "city": "Accra",
+    "hours": "Mon–Sat 9:00–18:00 · Sun 11:00–16:00",
+    "lat": 5.6055,
+    "lng": -0.1756,
+    "mapEmbedUrl": "https://www.openstreetmap.org/export/embed.html?bbox=-0.1856%2C5.5955%2C-0.1656%2C5.6155&layer=mapnik&marker=5.6055%2C-0.1756",
+    "mapUrl": "https://www.openstreetmap.org/?mlat=5.6055&mlon=-0.1756#map=16/5.6055/-0.1756"
+  },
+  "showrooms": [
+    {
+      "id": "accra-main",
+      "name": "Accra Experience Centre",
+      "city": "Accra",
+      "address": "Plot 14, Liberation Road, Airport City, Accra, Ghana",
+      "phone": "+233 30 274 5800",
+      "hours": "Mon–Sat 9:00–18:00 · Sun 11:00–16:00",
+      "mapUrl": "https://www.openstreetmap.org/?mlat=5.6055&mlon=-0.1756#map=16/5.6055/-0.1756"
+    },
+    {
+      "id": "kumasi-main",
+      "name": "Kumasi Showroom",
+      "city": "Kumasi",
+      "address": "Harper Road, Adum, Kumasi, Ghana",
+      "phone": "+233 32 204 1190",
+      "hours": "Mon–Sat 9:00–17:30",
+      "mapUrl": "https://www.openstreetmap.org/?mlat=6.6885&mlon=-1.6244#map=16/6.6885/-1.6244"
+    }
+  ],
+  "ghanaNotes": {
+    "roads": "XPENG vehicles are prepared for mixed city traffic, coastal humidity, and longer intercity routes across Ghana.",
+    "charging": "Home wallboxes and partner public chargers are available in Accra, with growing coverage in Kumasi and coastal cities."
+  },
+  "about": {
+    "headline": "Electric driving, rooted in Ghana",
+    "body": "XPENG Ghana brings intelligent electric vehicles to customers across the country. From Accra test drives to ownership support in major cities, our team helps you choose the right model, understand charging, and stay confidently on the road.\n\nWe welcome families, executives, and fleet buyers who want a refined EV experience with local support — showrooms, service, and guidance that stays with you after delivery."
+  },
+  "privacy": {
+    "headline": "Privacy Policy",
+    "body": "XPENG Ghana respects your privacy. When you book a test drive, request a quote, or contact our team, we collect only the details needed to respond — such as your name, phone number, email, preferred city, and message.\n\nWe use this information to confirm appointments, share model information, and improve our customer experience. We do not sell your personal data. Access is limited to authorised staff and service partners who help fulfil your request.\n\nYou may ask us to update or delete your contact details by emailing hello@xpengghana.com. This policy may be updated as our services grow; the latest version will always appear on this page."
+  },
+  "terms": {
+    "headline": "Terms of Use",
+    "body": "By using the XPENG Ghana website, you agree to browse model information, showroom details, and forms for personal enquiry purposes only.\n\nVehicle specifications, pricing, colours, and availability shown on this site are illustrative and may change. Final offers are confirmed by XPENG Ghana in writing at the point of sale.\n\nContent on this site — including text, imagery, and branding — belongs to XPENG Ghana or its licensors and may not be copied for commercial use without permission.\n\nFor sales, service, or ownership questions, contact our Accra Experience Centre or email hello@xpengghana.com."
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "id": "g9l",
+  "name": "XPENG G9L",
+  "headline": "XPENG G9L: Now in Ghana",
+  "subheadline": "Flagship range, luxury, and intelligent driving for Ghana’s roads",
+  "priceGhs": 1850000,
+  "priceNote": "Indicative Ghana price — confirm final offer with our team",
+  "availableInGhana": true,
+  "specs": {
+    "range": "Up to 600 km*",
+    "acceleration": "Under 6.0 s*",
+    "battery": "High-voltage pack*",
+    "charging": "Fast DC supported*",
+    "dimensions": "See brochure*"
+  },
+  "specRows": [
+    { "label": "Range", "value": "Up to 600 km*" },
+    { "label": "Acceleration", "value": "Under 6.0 s 0–100*" },
+    { "label": "Battery", "value": "High-voltage pack*" },
+    { "label": "Charging", "value": "10–80% fast DC*" },
+    { "label": "Dimensions", "value": "See brochure*" },
+    { "label": "Drivetrain", "value": "Electric*" },
+    { "label": "Seating", "value": "5–7*" },
+    { "label": "Boot capacity", "value": "Generous*" }
+  ],
+  "features": [
+    {
+      "id": "design",
+      "title": "Signature design",
+      "description": "Clean XPENG proportions with a distinctive light signature and refined exterior presence."
+    },
+    {
+      "id": "interior",
+      "title": "Premium interior",
+      "description": "A quiet, modern cabin with intuitive screens and materials chosen for comfort on Ghana roads."
+    },
+    {
+      "id": "adas",
+      "title": "Driver assistance",
+      "description": "Intelligent assistance features that support confident driving in city traffic and on highways."
+    },
+    {
+      "id": "comfort",
+      "title": "Everyday comfort",
+      "description": "Supportive seats, smooth electric power delivery, and climate comfort for tropical conditions."
+    }
+  ],
+  "colors": [
+    {
+      "id": "arctic-white",
+      "name": "Arctic White",
+      "hex": "#F5F5F5",
+      "image": "/brand/xpeng_models/XPENG_G9L_Arctic_White_Front.jpg"
+    },
+    {
+      "id": "midnight-black",
+      "name": "Midnight Black",
+      "hex": "#1A1A1A",
+      "image": "/brand/xpeng_models/XPENG_G9L_Midnight_Black.jpg"
+    }
+  ],
+  "wheels": [
+    { "id": "w1", "name": "Aero 20\"", "image": "/images/g9l/wheel-1.jpg" },
+    { "id": "w2", "name": "Sport 21\"", "image": "/images/g9l/wheel-2.jpg" }
+  ],
+  "interiors": [
+    { "id": "i1", "name": "Light Cabin", "image": "/images/g9l/interior-1.jpg" },
+    { "id": "i2", "name": "Dark Cabin", "image": "/images/g9l/interior-2.jpg" }
+  ],
+  "gallery": [
+    { "src": "/brand/xpeng_models/XPENG_G9L_Arctic_White_Front.jpg", "alt": "XPENG G9L Arctic White front view" },
+    { "src": "/brand/xpeng_models/XPENG_G9L_Arctic_White_Side.jpg", "alt": "XPENG G9L Arctic White side profile" },
+    { "src": "/brand/xpeng_models/XPENG_G9L_Midnight_Black.jpg", "alt": "XPENG G9L Midnight Black" }
+  ],
+  "lifestyle": [
+    {
+      "id": "coast",
+      "title": "Coastal drives",
+      "description": "Quiet electric power for Accra-to-coast weekends and smooth highway cruising.",
+      "poster": "/videos/tracking-poster.jpg",
+      "video": "/videos/driving%20scene.mp4"
+    },
+    {
+      "id": "interior-lux",
+      "title": "Cabin calm",
+      "description": "A refined cabin for family days, executive trips, and evening city drives.",
+      "poster": "/videos/interior-poster.jpg",
+      "video": "/videos/_users_1a03c492_9658_4404_b72b_497614eb29a5_generated_be1f3182_45a3.mp4"
+    }
+  ],
+  "assemblyStory": [
+    {
+      "id": "battery",
+      "title": "Battery architecture",
+      "description": "A high-voltage pack engineered for everyday range and confident fast charging."
+    },
+    {
+      "id": "motors",
+      "title": "Electric motors",
+      "description": "Smooth, responsive power delivery tuned for city traffic and open roads."
+    },
+    {
+      "id": "chassis",
+      "title": "Chassis and structure",
+      "description": "A rigid structure that supports comfort, stability, and a premium driving feel."
+    },
+    {
+      "id": "cabin",
+      "title": "Seats and cabin",
+      "description": "Thoughtful seating and materials that stay comfortable in Ghana’s climate."
+    }
+  ],
+  "ownership": {
+    "charging": "Charge at home with a wallbox, or use partner public chargers in Accra, Kumasi, and coastal cities. Our team can help you choose the right setup for your model.",
+    "warranty": "Every XPENG includes manufacturer-backed warranty coverage. Visit our Accra or Kumasi showroom for full terms and claim support.",
+    "service": "Scheduled maintenance, software updates, and body repairs are handled through authorised XPENG service partners across Ghana.",
+    "faq": [
+      {
+        "q": "Where can I charge an XPENG in Ghana?",
+        "a": "Home wallboxes and partner public chargers are available in Accra, with growing coverage in Kumasi and other major cities. Ask our team for a route plan that fits your model."
+      },
+      {
+        "q": "What warranty coverage is included?",
+        "a": "Coverage includes the vehicle and high-voltage battery under standard manufacturer terms. Exact periods are confirmed at purchase."
+      },
+      {
+        "q": "How do I book a service appointment?",
+        "a": "Call our Accra Experience Centre, message us on WhatsApp, or visit a showroom. We will confirm a slot at the nearest authorised service point."
+      },
+      {
+        "q": "Can I arrange a test drive?",
+        "a": "Yes. Book online or contact the team to drive available models in Accra, Kumasi, or another supported city."
+      }
+    ]
+  }
+}
