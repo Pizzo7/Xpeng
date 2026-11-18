@@ -93,7 +93,7 @@ export function ModelShowcase({
             loop
             playsInline
             autoPlay
-            preload="auto"
+            preload="metadata"
             poster={activeColor?.image ?? gallery[0]?.src}
             aria-label={`${modelName} 360 view`}
           />

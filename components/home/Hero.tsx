@@ -36,6 +36,7 @@ export function Hero() {
       <div className="absolute inset-0">
         <CinematicVideo
           src="/videos/hero-page.mp4"
+          poster="/videos/posters/hero-page.jpg"
           alt="XPENG driving in Ghana"
           className="h-full w-full"
           autoPlayWhenAllowed

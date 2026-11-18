@@ -44,7 +44,25 @@ export function CinematicVideo({
   useEffect(() => {
     const video = videoRef.current;
     if (!video || !shouldAutoplay) return;
-    return playMuted(video);
+
+    const sync = () => {
+      const isPlaying = !video.paused && !video.ended;
+      setPlaying(isPlaying);
+      if (isPlaying) setShowPoster(false);
+    };
+
+    video.addEventListener("play", sync);
+    video.addEventListener("playing", sync);
+    video.addEventListener("pause", sync);
+    const stop = playMuted(video);
+    sync();
+
+    return () => {
+      stop();
+      video.removeEventListener("play", sync);
+      video.removeEventListener("playing", sync);
+      video.removeEventListener("pause", sync);
+    };
   }, [shouldAutoplay, src]);
 
   const toggle = async () => {
@@ -99,10 +117,7 @@ export function CinematicVideo({
       {activated ? (
         <video
           ref={videoRef}
-          className={[
-            "absolute inset-0 h-full w-full object-cover",
-            poster && showPoster ? "opacity-0" : "opacity-100",
-          ].join(" ")}
+          className="absolute inset-0 z-[1] h-full w-full object-cover"
           src={src}
           poster={poster}
           muted
@@ -111,11 +126,6 @@ export function CinematicVideo({
           loop={loop}
           preload={shouldAutoplay ? "auto" : "metadata"}
           aria-label={alt}
-          onPlay={() => {
-            setPlaying(true);
-            setShowPoster(false);
-          }}
-          onPause={() => setPlaying(false)}
         />
       ) : null}
 

@@ -7,9 +7,22 @@ import { InViewVideo } from "@/components/media/InViewVideo";
 import { Reveal, Stagger, StaggerItem, TiltCard } from "@/components/motion";
 import { getFeaturedModel, site } from "@/lib/data";
 
-function CardVideo({ src, label }: { src: string; label: string }) {
+function CardVideo({
+  src,
+  poster,
+  label,
+}: {
+  src: string;
+  poster: string;
+  label: string;
+}) {
   return (
-    <InViewVideo src={src} label={label} className="aspect-[4/3]" />
+    <InViewVideo
+      src={src}
+      poster={poster}
+      label={label}
+      className="aspect-[4/3]"
+    />
   );
 }
 
@@ -43,6 +56,7 @@ export function FeaturedModelShowcase() {
             >
               <CardVideo
                 src="/videos/xpeng_x9_intelligent_parking.mp4"
+                poster="/videos/posters/xpeng_x9_intelligent_parking.jpg"
                 label="XPENG intelligent parking"
               />
               <div className="space-y-3 p-6">
@@ -63,6 +77,7 @@ export function FeaturedModelShowcase() {
             >
               <CardVideo
                 src="/videos/_users_1a03c492_9658_4404_b72b_497614eb29a5_generated_da375319_458a.mp4"
+                poster="/videos/posters/road-presence.jpg"
                 label="XPENG on the open road"
               />
               <div className="space-y-3 p-6">

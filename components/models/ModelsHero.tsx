@@ -39,7 +39,7 @@ export function ModelsHero() {
             muted
             playsInline
             loop
-            preload="auto"
+            preload="metadata"
             aria-label={`${featured?.fullName ?? "XPENG"} 360 view`}
           />
         ) : (

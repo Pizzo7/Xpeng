@@ -39,7 +39,11 @@ export function ModelFinder() {
   const [hovered, setHovered] = useState(false);
   const [swapping, setSwapping] = useState(false);
   const swapTimer = useRef<number | null>(null);
+  const mediaRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [near, setNear] = useState(false);
+  const [onScreen, setOnScreen] = useState(false);
+  const [playing, setPlaying] = useState(false);
   const activeIndex = useMemo(
     () => Math.max(0, list.findIndex((m) => m.id === activeId)),
     [activeId, list],
@@ -54,14 +58,41 @@ export function ModelFinder() {
   }, []);
 
   useEffect(() => {
+    const node = mediaRef.current;
+    if (!node) return;
+
+    const nearObserver = new IntersectionObserver(
+      ([entry]) => setNear(Boolean(entry?.isIntersecting)),
+      { rootMargin: "600px", threshold: 0 },
+    );
+    const screenObserver = new IntersectionObserver(
+      ([entry]) => setOnScreen(Boolean(entry?.isIntersecting)),
+      { rootMargin: "0px", threshold: 0.15 },
+    );
+    nearObserver.observe(node);
+    screenObserver.observe(node);
+    return () => {
+      nearObserver.disconnect();
+      screenObserver.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    setPlaying(false);
+  }, [activeId]);
+
+  useEffect(() => {
     const video = videoRef.current;
-    if (!video || !spinVideo) return;
+    if (!video || !spinVideo || !near || !onScreen) {
+      video?.pause();
+      return;
+    }
     if (hovered || swapping) {
       video.pause();
       return;
     }
     return playMuted(video);
-  }, [hovered, swapping, spinVideo, activeId]);
+  }, [hovered, swapping, spinVideo, activeId, near, onScreen]);
 
   if (!active) return null;
 
@@ -128,6 +159,7 @@ export function ModelFinder() {
 
         <div className="relative mt-10 overflow-hidden rounded border border-silver/15 bg-black">
           <div
+            ref={mediaRef}
             className="relative aspect-[16/9] sm:aspect-[21/9]"
             style={{ perspective: 1200 }}
             onMouseEnter={() => setHovered(true)}
@@ -145,18 +177,33 @@ export function ModelFinder() {
                 className="absolute inset-0 bg-black"
               >
                 {spinVideo ? (
-                  <video
-                    ref={videoRef}
-                    src={spinVideo}
-                    poster={active.poster}
-                    className="absolute inset-0 h-full w-full object-contain object-center p-4 sm:p-6"
-                    autoPlay
-                    muted
-                    playsInline
-                    loop
-                    preload="auto"
-                    aria-label={`${active.fullName} 360 view`}
-                  />
+                  <>
+                    {!playing ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={active.poster}
+                        alt=""
+                        className="absolute inset-0 h-full w-full object-contain object-center p-4 sm:p-6"
+                      />
+                    ) : null}
+                    <video
+                      ref={videoRef}
+                      src={near ? spinVideo : undefined}
+                      poster={active.poster}
+                      className={[
+                        "absolute inset-0 h-full w-full object-contain object-center p-4 sm:p-6",
+                        playing ? "opacity-100" : "opacity-0",
+                      ].join(" ")}
+                      autoPlay={near && onScreen}
+                      muted
+                      playsInline
+                      loop
+                      preload={near ? "metadata" : "none"}
+                      aria-label={`${active.fullName} 360 view`}
+                      onPlay={() => setPlaying(true)}
+                      onPause={() => setPlaying(false)}
+                    />
+                  </>
                 ) : (
                   <SkeletonImage
                     src={active.poster}

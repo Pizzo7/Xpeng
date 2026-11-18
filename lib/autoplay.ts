@@ -6,6 +6,7 @@ export function playMuted(video: HTMLVideoElement): () => void {
   video.muted = true;
   video.defaultMuted = true;
   video.playsInline = true;
+  video.setAttribute("muted", "");
   video.setAttribute("playsinline", "");
   video.setAttribute("webkit-playsinline", "");
 
@@ -13,33 +14,31 @@ export function playMuted(video: HTMLVideoElement): () => void {
   let retries = 0;
 
   const tryPlay = () => {
-    if (cancelled || retries > 5) return;
+    if (cancelled || !video.paused || retries > 8) return;
     retries += 1;
     video.muted = true;
     const pending = video.play();
     if (!pending || typeof pending.then !== "function") return;
-    pending.catch((error: unknown) => {
-      if (cancelled) return;
-      const name = error instanceof DOMException ? error.name : "";
-      if (name === "NotAllowedError") return;
+    pending.catch(() => {
+      if (cancelled || !video.paused) return;
       const retry = () => {
-        if (!cancelled) tryPlay();
+        if (!cancelled && video.paused) tryPlay();
       };
-      if (video.readyState >= 2) {
-        window.setTimeout(retry, 300);
-      } else {
-        video.addEventListener("canplay", retry, { once: true });
-      }
+      if (video.readyState >= 2) window.setTimeout(retry, 250);
+      else video.addEventListener("canplay", retry, { once: true });
     });
   };
 
   tryPlay();
-  if (video.readyState < 2) {
-    video.addEventListener("loadeddata", tryPlay, { once: true });
-  }
+  const onReady = () => {
+    if (!cancelled && video.paused) tryPlay();
+  };
+  video.addEventListener("loadeddata", onReady);
+  video.addEventListener("canplay", onReady);
 
   return () => {
     cancelled = true;
-    video.removeEventListener("loadeddata", tryPlay);
+    video.removeEventListener("loadeddata", onReady);
+    video.removeEventListener("canplay", onReady);
   };
 }
