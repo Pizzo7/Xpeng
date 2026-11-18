@@ -17,11 +17,13 @@ export function SpecsTable({ rows }: SpecsTableProps) {
             <StaggerItem as="tr" key={row.label} className="border-b border-silver/15">
               <th
                 scope="row"
-                className="w-[40%] py-4 pr-6 align-top text-sm font-normal text-silver"
+                className="py-4 pr-6 align-middle text-sm font-normal text-silver"
               >
                 {row.label}
               </th>
-              <td className="py-4 font-display text-lg text-mist">{row.value}</td>
+              <td className="py-4 text-right font-display text-lg text-mist">
+                {row.value}
+              </td>
             </StaggerItem>
           ))}
         </Stagger>
